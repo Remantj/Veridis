@@ -1,3 +1,7 @@
+DROP TABLE RANGER;
+DROP TABLE REFERENCE;
+DROP TABLE SOUND;
+
 CREATE TABLE RANGER
 (
    NUM              INT              not null AUTO_INCREMENT,
@@ -11,7 +15,7 @@ CREATE TABLE REFERENCE
 (
    NUM              INT              not null AUTO_INCREMENT,
    DISTANCE         FLOAT,
-   SON             INT,
+   SON             FLOAT,
    TEMPS            DATETIME,
    primary key (NUM)
 );

@@ -10,7 +10,7 @@ from mail import envoi
 #GPIO.setup(12, GPIO.IN) #Button
 
 button = GPIO(12)
-sound_sensor = GPIO(16)
+Sound_sensor = GPIO(16)
 usleep = lambda x: time.sleep(x / 1000000.0)
  
 _TIMEOUT1 = 1000
@@ -64,20 +64,6 @@ class GroveUltrasonicRanger(object):
             dist = self._get_distance()
             if dist:
                 return dist
- 
-Grove = GroveUltrasonicRanger
- 
-"""def dist():
- 
-    sonar = GroveUltrasonicRanger(int(6))
- 
-    print('Detecting distance...')
-    while True:
-        print('{} cm'.format(sonar.get_distance()))
-        time.sleep(1)
- 
-if __name__ == '__main__':
-    dist()"""
 
 class GroveSoundSensor:
  
@@ -90,7 +76,22 @@ class GroveSoundSensor:
         value = self.adc.read(self.channel)
         return value
  
-Grove = GroveSoundSensor
+#Grove = GroveSoundSensor
+ 
+#Grove = GroveUltrasonicRanger
+ 
+"""def dist():
+ 
+    sonar = GroveUltrasonicRanger(int(6))
+ 
+    print('Detecting distance...')
+    while True:
+        print('{} cm'.format(sonar.get_distance()))
+        time.sleep(1)
+ 
+if __name__ == '__main__':
+    dist()
+
  
  
 def sound():
@@ -100,22 +101,34 @@ def sound():
     print('Detecting sound...')
     while True:
         print('Sound value: {0}'.format(sensor.sound))
-        time.sleep(.3)
+        time.sleep(.3)"""
  
-son_ref = []
+liste_son = []
+son_ref = 0
 distance_ref= 0
+son_actu = 0
+dist_actu = 0
+actif = False
 
 while True:     
     button.dir(GPIO.IN)
     if button.read() == 1:
         """if __name__ == '__main__':
             sound()"""
-        sound_sensor.dir(GPIO.IN)
+        Sound_sensor.dir(GPIO.IN)
         for i in range(25):
-            son_ref.append(GroveSoundSensor(int(0)).sound)
+            liste_son.append(GroveSoundSensor(int(0)).sound)
             time.sleep(0.2)
-        distance_ref = GroveUltrasonicRanger(int(6)).get_distance()
-
-            
-        reference(float(distance_ref), float(mean(son_ref)))
-        #envoi()
+        distance_ref = float(GroveUltrasonicRanger(int(6)).get_distance())
+        son_ref = float(mean(liste_son))
+        reference(distance_ref, son_ref)
+        actif = True
+    
+    if actif:
+        dist_actu = float(GroveUltrasonicRanger(int(6)).get_distance())
+        if dist_actu < distance_ref:
+            ultrasonic_ranger(1, dist_actu)
+            envoi()
+        son_actu = int(GroveSoundSensor(int(0)).sound)
+        if son_actu + 100 > son_ref:
+            sound_sensor(son_actu)

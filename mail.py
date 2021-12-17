@@ -9,11 +9,12 @@ def envoi():
     EMAIL_FROM = "veridis95@gmail.com"
     EMAIL_TO = "julienremant95@gmail.com"
     EMAIL_SUBJECT = "Alerte Veridis"
-    EMAIL_MESSAGE = f"Attention, le module de surveillance a detecte une presence !\nDerniere intrusion : {datetime.now()}"
+    now = datetime.now()
+    EMAIL_MESSAGE = "Attention, le module de surveillance a detecte une presence !\nDerniere intrusion le "+now.strftime("%d/%m/%Y ")+"a "+now.strftime("%H:%M:%S")
 
     s = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
     s.starttls()
     s.login(SMTP_USERNAME, SMTP_PASSWORD)
     message = 'Subject: {}\n\n{}'.format(EMAIL_SUBJECT, EMAIL_MESSAGE)
     s.sendmail(EMAIL_FROM, EMAIL_TO, message)
-    s.quit()
+    s.quit()uit()

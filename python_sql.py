@@ -4,7 +4,7 @@ from datetime import datetime
 #connexion au base de données
 db = mysql.connector.connect(
   host = "localhost",
-  user = "user",
+  user = "omegax95",
   password = "root",
   database = "VERIDIS"
 )
@@ -32,5 +32,18 @@ def reference(distance, son):
   value = (distance, son, str(datetime.now()))
   cur.execute(sql, value)
   db.commit()
+
+def nb_intrusions(moment):
+  if moment == 'jour':
+    cur.execute("SELECT COUNT(PRESENCE) FROM RANGER WHERE DAY(TEMPS)=DAY(NOW())")
+  elif moment == "semaine":
+    cur.execute("SELECT COUNT(PRESENCE) FROM RANGER WHERE WEEK(TEMPS)=WEEK(NOW())")
+  elif moment == "mois":
+    cur.execute("SELECT COUNT(PRESENCE) FROM RANGER WHERE MONTH(TEMPS)=MONTH(NOW())")
+  elif moment == "annee":
+    cur.execute("SELECT COUNT(PRESENCE) FROM RANGER WHERE YEAR(TEMPS)=YEAR(NOW())")
+  res = cur.fetchone()
+  for i in res:
+    return i
 
   

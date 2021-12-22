@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='tyles/home.css') }}">
+    <script src="{{ url_for('static',filename='settings.js') }}" type="text/javascript"></script>
+    <title>Veridis</title>
+</head>
+<body>
+    <div id="left_menu">
+        <div class="side_button">
+            <button onclick="window.location.href='{{ url_for('home') }}';">Accueil</button>
+        </div>
+        <div class="side_button">
+            <button onclick="window.location.href='{{ url_for('stats') }}';">Stats</button>
+        </div>
+        <div class="side_button">
+            <button onclick="window.location.href='{{ url_for('settings') }}';">Paramètres</button>
+        </div>
+    </div>
+    <div id="logo">
+        <img src="{{ url_for('static',filename='logo.png') }}" alt="logo_veridis" id="logo_img">
+    </div>
+    <div id="main_window">
+        <div class="settings">
+            <h1 class="text">Paramètres</h1>
+            <label for="theme-select" class="text">Thème:</label>
+            <select name="themes" id="theme_select" onchange="checkTheme(this)">
+                <option value="clair">Clair</option>
+                <option value="sombre">Sombre</option>
+                <option value="rose">Rose <3</option>
+            </select>
+        </div>
+    </div>
+
+    </div>
+    <div id="right_menu">
+        <div id="user_info">
+            <p class="text">Utilisateur actif:</p>
+            <p class="text">Maxime Dautriche</p>
+        </div>
+        <div class="side_button">
+            <button onclick="window.location.href='{{ url_for('aff_connexion') }}';">Déconnexion</button>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

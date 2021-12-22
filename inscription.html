@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='connexion.css') }}">
+    <title>Veridis</title>
+</head>
+<body>
+    <div class="logo">
+        <img src="{{ url_for('static',filename='logo.png') }}" alt="">
+    </div>
+    <div class="corps_connexion">
+        <form action="http://localhost:5000/inscription" method="post">
+            <H1>Inscrivez-vous !</H1>
+            <div class="corps_formulaire">
+                <div class="groupe">
+                    <label>Identifiant</label>
+                    <input type="identifiant" name="identifiant">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="groupe">            
+                    <label>Mot de Passe</label>
+                    <input type="mot_de_passe" name="mot_de_passe">
+                    <i class="fas fa-key"></i>
+                </div>
+            </div>
+            <div class="pied_formulaire" align=center>
+                <button onclick="window.location.href='home.html';">Créer un compte !</button>
+            </div>
+            <div class="creer-compte" align=center>
+                <a href="{{ url_for('aff_connexion') }}">Vous avez déjà un compte ? Connectez-vous !</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -33,6 +33,17 @@ def reference(distance, son):
   cur.execute(sql, value)
   db.commit()
 
+def identification(identifiant, password):
+  cur.execute("SELECT IDENTIFIANT, MOTDEPASSE FROM PERSONNE")
+  res = cur.fetchall()
+  return (identifiant, password) in res
+
+def inscriptionbd(identifiant, password):
+  sql = "INSERT INTO PERSONNE(IDENTIFIANT, MOTDEPASSE) VALUES (%s, %s)"
+  value = (identifiant, password)
+  cur.execute(sql, value)
+  db.commit()
+
 def nb_intrusions(moment):
   if moment == 'jour':
     cur.execute("SELECT COUNT(PRESENCE) FROM RANGER WHERE DAY(TEMPS)=DAY(NOW())")
@@ -45,5 +56,3 @@ def nb_intrusions(moment):
   res = cur.fetchone()
   for i in res:
     return i
-
-  

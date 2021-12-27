@@ -1,29 +1,46 @@
 function checkTheme(theme){
     if(theme.value == "sombre"){
-        document.cookie = "sombre";
+        document.cookie = "theme=sombre";
         SetTheme("sombre");
     }
     if (theme.value == "rose"){
-        document.cookie = "rose";
+        document.cookie = "theme=rose";
         SetTheme("rose");
     }
     if (theme.value == "clair"){
-        document.cookie = "clair"; 
+        document.cookie = "theme=clair"; 
         SetTheme("clair");
     }
     return ;
 }
 
 function InitTheme(){
-    if(document.cookie == "sombre"){
+    if(getCookie("theme") == "sombre"){
         SetTheme("sombre");
     }
-    if(document.cookie == "rose"){
+    if(getCookie("theme") == "rose"){
         SetTheme("rose");
     }
-    if(document.cookie == "clair"){
+    if(getCookie("theme") == "clair"){
         SetTheme("clair");
     }
+    document.getElementById("white_rectangle").style.width = "0%";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 function SetTheme(theme_name){
@@ -36,13 +53,15 @@ function SetTheme(theme_name){
         document.getElementById("left_menu").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
         document.getElementById("right_menu").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
         document.getElementById("main_window").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-        if(document.getElementById("logo_img") != null){
+        if(document.getElementById("logo_img") != null && document.getElementById("logo_white_img") != null){
             document.getElementById("logo_img").style.top = "-100%";
             document.getElementById("logo_white_img").style.top = "0%";
         }
         var all = document.getElementsByClassName('text');
-        for (var i = 0; i < all.length; i++) {
-            all[i].style.color = 'white';
+        if(all.length > 0){
+            for (var i = 0; i < all.length; i++) {
+                all[i].style.color = 'white';
+            }
         }
     }
     if(theme_name == "rose"){
@@ -55,13 +74,15 @@ function SetTheme(theme_name){
         document.getElementById("left_menu").style.backgroundColor = menu_colors;
         document.getElementById("right_menu").style.backgroundColor = menu_colors;
         document.getElementById("main_window").style.backgroundColor = menu_colors;
-        if(document.getElementById("logo_img") != null){
+        if(document.getElementById("logo_img") != null && document.getElementById("logo_white_img") != null){
             document.getElementById("logo_img").style.top = "0%";
             document.getElementById("logo_white_img").style.top = "-100%";
         }
         var all = document.getElementsByClassName('text');
-        for (var i = 0; i < all.length; i++) {
-            all[i].style.color = 'black';
+        if(all.length > 0){
+            for (var i = 0; i < all.length; i++) {
+                all[i].style.color = 'black';
+            }
         }
     }
     if(theme_name == "clair"){
@@ -73,13 +94,15 @@ function SetTheme(theme_name){
         document.getElementById("left_menu").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
         document.getElementById("right_menu").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
         document.getElementById("main_window").style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-        if(document.getElementById("logo_img") != null){
+        if(document.getElementById("logo_img") != null && document.getElementById("logo_white_img") != null){
             document.getElementById("logo_img").style.top = "0%";
             document.getElementById("logo_white_img").style.top = "-100%";
         }
         var all = document.getElementsByClassName('text');
-        for (var i = 0; i < all.length; i++) {
-            all[i].style.color = 'white';
+        if(all.length > 0){
+            for (var i = 0; i < all.length; i++) {
+                all[i].style.color = 'black';
+            }
         }
     }
     

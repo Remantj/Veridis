@@ -13,7 +13,7 @@
         <img src="{{ url_for('static',filename='logo.png') }}" alt="">
     </div>
     <div class="corps_connexion">
-        <form action="http://localhost:5000/inscription" method="post">
+        <form action="{{url_for('inscription')}}" method="post">
             <H1>Inscrivez-vous !</H1>
             <div class="corps_formulaire">
                 <div class="groupe">

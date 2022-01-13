@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static',filename='tyles/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}">
     <script src="{{ url_for('static',filename='settings.js') }}" type="text/javascript"></script>
     <title>Veridis</title>
 </head>
@@ -29,24 +29,39 @@
     </div>
     <div id="main_window">
         <div>
-            <img src="{{ url_for('static',filename='veridis_green.png') }}" alt="">
+            <img src="{{ url_for('static',filename=image)}}" alt="">
         </div>
-        <div id="toggles">
-            <div class="inputs">
-                <label for="sound_sensor_check">Capteur de son</label>
-                <input type="checkbox" id="sound_sensor_check">
+        <div id="forms">
+            <div id="form_left">
+                <form id="capteurs" action="{{url_for('capteur')}}" method="post">
+                    <div class="inputs">
+                        <label class="text" for="sound_sensor_check">Capteur de son</label>
+                        <input type="checkbox" id="sound_sensor" name="sound_sensor">
+                    </div>
+                    <div class="inputs">
+                        <label class="text" for="move_sensor_check">Capteur de mouvement</label>
+                        <input type="checkbox" id="ultrasonic_ranger" name="ultrasonic_ranger">
+                    </div>
+                    <div class="pied_formulaire" align=center>
+                        <input type="submit" value="Validation" class="activation_button">
+                    </div>
+                </form>
             </div>
-            <div class="inputs">
-                <label for="move_sensor_check">Capteur de mouvement</label>
-                <input type="checkbox" id="move_sensor_check">
+            <div id="form_right">
+                <form id="form2" action="{{url_for('desactivation')}}" method="post">
+                    <br>
+                    <br>
+                    <div class="pied_formulaire" align=center></div>
+                        <button name="button" class="activation_button2" onclick="desactivation()">Désactivation</button>
+                    </div>
+                </form> 
             </div>
         </div>
-
     </div>
     <div id="right_menu">
         <div id="user_info">
             <p class="text">Utilisateur actif:</p>
-            <p class="text">Maxime Dautriche</p>
+            <p class="text">{{nom}}</p>
         </div>
         <div class="side_button">
             <button onclick="window.location.href='{{ url_for('aff_connexion') }}';">Déconnexion</button>

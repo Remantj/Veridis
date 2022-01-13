@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static',filename='tyles/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}">
     <script src="{{ url_for('static',filename='settings.js') }}" type="text/javascript"></script>
     <title>Veridis</title>
 </head>
@@ -36,6 +36,10 @@
                 <option value="sombre">Sombre</option>
                 <option value="rose">Rose <3</option>
             </select>
+            <p></p>
+            <form action="{{url_for('bouton')}}" method="post">
+            <label for="ref" class="text">Fixer les valeurs de référence:</label>
+            <button id="ref" name="button" onclick="bouton()">Références</button></form>
         </div>
     </div>
 
@@ -43,7 +47,7 @@
     <div id="right_menu">
         <div id="user_info">
             <p class="text">Utilisateur actif:</p>
-            <p class="text">Maxime Dautriche</p>
+            <p class="text">{{nom}}</p>
         </div>
         <div class="side_button">
             <button onclick="window.location.href='{{ url_for('aff_connexion') }}';">Déconnexion</button>

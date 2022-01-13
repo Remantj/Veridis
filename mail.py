@@ -1,3 +1,7 @@
+"""
+    Fichier permettant l'envoi d'un mail
+"""
+
 import smtplib
 from datetime import datetime
 
@@ -17,4 +21,4 @@ def envoi():
     s.login(SMTP_USERNAME, SMTP_PASSWORD)
     message = 'Subject: {}\n\n{}'.format(EMAIL_SUBJECT, EMAIL_MESSAGE)
     s.sendmail(EMAIL_FROM, EMAIL_TO, message)
-    s.quit()uit()
+    s.quit()

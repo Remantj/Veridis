@@ -101,7 +101,7 @@ function SetTheme(theme_name){
         var all = document.getElementsByClassName('text');
         if(all.length > 0){
             for (var i = 0; i < all.length; i++) {
-                all[i].style.color = 'black';
+                all[i].style.color = 'white';
             }
         }
     }

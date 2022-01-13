@@ -5,10 +5,14 @@
     margin-bottom: 4px;
     padding: 10px 5px;
     border: 0px;
-    
 }
 
 #left_menu button:hover{
+    color: white;
+    background-color: orange;
+}
+
+#ref:hover{
     color: white;
     background-color: orange;
 }
@@ -18,9 +22,9 @@
     background-color: rgba(0, 0, 0, 0.6);
     width: 15%;
     height:95%;
-    padding-top: 7px;
+    padding-top: 10px;
     top:2.5%;
-    border-radius: 4px;
+    border-radius: 10px;
     position: absolute;
 }
 
@@ -31,12 +35,61 @@
     margin-bottom: 4px;
     padding: 10px 5px;
     border: 0px;
-    
+}
+
+.activation_button{
+    position:relative;
+    width: 60%; 
+    margin-bottom: 4px;
+    margin-right: 15px;
+    padding: 10px 3px;
+    border: 0px;
+    left:20%;
+}
+
+.activation_button2{
+    position:relative;
+    width: 60%; 
+    margin-bottom: 4px;
+    margin-right: 15px;
+    padding: 10px 3px;
+    border: 0px;
+    left:20%;
+    top:3px;
+}
+
+
+.pied_formulaire{
+    display: flex;
+    position: relative;
+    left: -5px;
+    margin-top: 2%;
+    width:100%;
+}
+
+.activation_button:hover{
+    color: white;
+    background-color: orange;
+}
+
+.activation_button2:hover{
+    color: white;
+    background-color: orange;
 }
 
 #right_menu button:hover{
     color: white;
     background-color: orange;
+}
+
+.text{
+    color: white;
+}
+
+#forms{
+    position:relative;
+    top:65%;
+    display: flex;
 }
 
 #right_menu{
@@ -46,7 +99,7 @@
     height:95%;
     padding-top: 7px;
     top:2.5%;
-    border-radius: 4px;
+    border-radius: 10px;
     position: absolute;
 }
 
@@ -58,7 +111,7 @@
 body{
     margin: 0;
     background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     background-attachment: fixed;
     background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(#a2a3a0)) fixed;
 }
@@ -87,34 +140,51 @@ body{
     position: absolute;
     background-color: white;
 }
+
 #main_window{
     width:40%;
-    height: 500px;
+    height: 35%;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.6);
     position:absolute;
     left:50%;
     top:65%;
     transform: translate(-50%, -50%);
+    padding-top: 10%;
+
 }
 
 #main_window img{
     width:80%;
     left:50%;
-    top:35%;
+    top:40%;
     position: absolute;
     transform: translate(-50%, -50%);
 }
 
-#main_window #toggles{
-    position:absolute;
-    left:10%;
-    top: 70%;
+#main_window #form_left{
+    position:relative;
+    left:5%;
+    top: 65%;
+    width: 45%;
 }
 
-#main_window #toggles label{
+#main_window #form_left label{
     color: white;
-    font-size: 18px;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+#main_window #form_right{
+    position:relative;
+    left:5%;
+    top: 65%;
+    width: 45%;
+}
+
+#main_window #form_right label{
+    color: white;
+    font-size: 100%;
     font-weight: bold;
 }
 
@@ -122,8 +192,7 @@ body{
     padding-left: 10px;
     position: absolute;
     top:-10px;
-    text-decoration: underline;
-    left: 5%px;
+    left: 5%;
 }
 
 .settings select{
@@ -133,4 +202,3 @@ body{
 .settings label{
     font-size: 20px;
 }
-

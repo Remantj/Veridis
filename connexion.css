@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(#a2a3a0)) fixed;
+    position:absolute;
+    left: 50%;
+    top: 5%;
+    font-family: Helvetica, Arial, sans-serif;
+    transform: translate(-50%, -0%);
+}
+
+form{
+    background-color: white;
+    border-radius: 10px;
+    padding:4px 20px 10px 20px;
+}
+
+form H1{
+    padding-top: -10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+form label{
+    font-size:16px;
+}
+
+form .corps_formulaire{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+form .corps_formulaire .groupe{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input{
+    padding: 10px 5px 10px 25px;
+    border-radius: 3px;
+    border: 1px solid #c9c9c9;
+    outline-color:rgb(96, 186, 219);
+}
+
+form .corps_formulaire .groupe i{
+    position:absolute;
+    transform:translate(8px, 30px);
+}
+
+form .pied_formulaire{
+    display: flex;
+    flex-direction: column;
+}
+
+form .pied_formulaire button{
+    position:relative;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color:cornflowerblue;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+a{
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+form .pied_formulaire button:hover{
+    transform: scale(1.05);
+}
